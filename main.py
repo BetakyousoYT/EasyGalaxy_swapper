@@ -46,7 +46,10 @@ time.sleep(0.5)
 print("何か文字を入れて取得")
 input()
 
-res = requests.get("https://galaxyswapperv2.com/Key/Create.php")
+headers = {
+    "Referer": "https://lootlinks.co/"
+}
+res = requests.get("https://galaxyswapperv2.com/Key/Create.php", headers=headers)
 license_key = res.url.split("?key=")[1] if res.ok else None
 print("ライセンスキーは：" + license_key) if license_key else print("ライセンスキーの取得時に問題が発生しました")
 
